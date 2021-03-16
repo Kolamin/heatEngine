@@ -201,12 +201,12 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
     <profiles>
         <profile>
-            <!-- Production mode is activated using -Pproduction -->
             <id>production</id>
             <build>
                 <plugins>
@@ -270,6 +270,34 @@
                         <configuration>
                             <trimStackTrace>false</trimStackTrace>
                             <enableAssertions>true</enableAssertions>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>npm</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <!-- Use the latest released version:
+                        https://repo1.maven.org/maven2/com/github/eirslett/frontend-maven-plugin/ -->
+                        <version>1.7.6</version>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <!-- optional: default phase is "generate-resources" -->
+                                <phase>generate-resources</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <nodeVersion>v14.15.3</nodeVersion>
                         </configuration>
                     </plugin>
                 </plugins>
