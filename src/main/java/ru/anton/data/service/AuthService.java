@@ -7,6 +7,7 @@ import ru.anton.data.entity.Role;
 import ru.anton.data.entity.User;
 import ru.anton.data.repository.UserRepository;
 import ru.anton.views.admin.AdminView;
+import ru.anton.views.contact.ContactView;
 import ru.anton.views.logout.LogoutView;
 import ru.anton.views.main.MainView;
 import ru.anton.views.question.QuestionView;
@@ -60,6 +61,7 @@ public class AuthService {
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
             routes.add(new AuthorizedRoute("questions", "Г.2.1", QuestionView.class));
             routes.add(new AuthorizedRoute("answers", "Ваши ответы", TableOfAnswersToQuestionsView.class));
+            routes.add(new AuthorizedRoute("contacts", "Контакты", ContactView.class));
 
         } else if (role.equals(Role.ADMIN)) {
 
@@ -67,6 +69,7 @@ public class AuthService {
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
             routes.add(new AuthorizedRoute("questions", "Г.2.1", QuestionView.class));
             routes.add(new AuthorizedRoute("answers", "Ваши ответы", TableOfAnswersToQuestionsView.class));
+            routes.add(new AuthorizedRoute("contacts", "Контакты", ContactView.class));
 
         }
 
